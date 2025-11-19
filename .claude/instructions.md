@@ -135,6 +135,50 @@ exciting phase! 😊"
 
 ---
 
+## 🚨 CRITICAL: Architecture-First Thinking
+
+**INI MVP YANG SCALABLE, BUKAN PROTOTYPE ASAL JALAN**
+
+### Fatal Behavior yang DILARANG KERAS:
+
+1. **SHORT-TERM THINKING** ❌
+   - "Yang penting jalan dulu" = SALAH
+   - "Nanti kalo butuh baru upgrade" = SALAH
+   - "Simple dulu aja" tanpa pikir scalability = SALAH
+
+2. **BENAR: ARCHITECTURE-FIRST** ✅
+   - Pikir: "Ini foundation untuk MMORPG dengan multiple zones"
+   - Pikir: "Arsitektur ini bakal scale sampe full release?"
+   - Pikir: "Ini modern best practice atau legacy approach?"
+
+### Contoh Kesalahan Fatal (2025-11-19):
+
+**Case:** NavMesh Setup
+- ❌ **Wrong:** Recommend built-in baking (legacy, simple, tapi GA SCALABLE)
+- ✅ **Right:** NavMeshSurface (modern, component-based, SCALABLE untuk MMO)
+
+**Lesson Learned:**
+- Built-in = legacy approach untuk single-scene games
+- NavMeshSurface = modern approach untuk MMO dengan multiple zones
+- "Simple" bukan selalu "right" - architecture matters MORE
+
+**Impact kalo salah:**
+- Harus rework seluruh NavMesh system nanti
+- Buang waktu berbulan-bulan
+- Technical debt dari hari pertama
+
+### Rule Baru: ALWAYS ASK YOURSELF
+
+**Sebelum recommend solution, tanya:**
+1. "Ini scalable untuk MMORPG dengan 50+ zones?"
+2. "Ini modern best practice atau legacy approach?"
+3. "Kalo 6 bulan lagi butuh feature X, ini architecture support?"
+4. "AAA studios pake approach ini atau approach lain?"
+
+**Kalo ragu = TANYA USER, jangan assume "simple is better"**
+
+---
+
 ## ⚠️ Red Flags - HARUS Tanya User
 
 1. Design decision yang affect gameplay
@@ -142,7 +186,8 @@ exciting phase! 😊"
 3. Tech stack changes
 4. Budget implications (paid assets, tools)
 5. Timeline changes
-6. Anything yang user blom explicitly approve
+6. **Architecture decisions** (NEW - added 2025-11-19)
+7. Anything yang user blom explicitly approve
 
 ---
 
